@@ -1,0 +1,33 @@
+{
+  "name": "fsa",
+  "version": "1.0.0",
+  "description": "FSA",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "standard"
+  },
+  "author": "Luke Barratt <luke@barratt.io>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "jest": "^22.3.0",
+    "pre-commit": "^1.2.2",
+    "standard": "^10.0.3",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": "9.4.0"
+  },
+  "standard": {
+    "env": {
+      "jest": true
+    }
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}
