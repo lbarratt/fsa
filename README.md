@@ -1,4 +1,4 @@
-# FSA Hygeine Ratings
+# FSA Hygiene Ratings
 
 ## Technology
 
@@ -10,7 +10,7 @@
 
 Requirements:
 
-- Node v9.0+
+- Node v9.4.0+
 
 Setup on OS X:
 
@@ -19,7 +19,7 @@ brew install node
 npm install
 ```
 
-## Running
+## Running the app
 
 `node`
 
@@ -27,7 +27,7 @@ Then browse to `http://localhost:3000`
 
 ## Code Quality
 
-`npm run link`
+`npm run lint`
 
 ## Testing
 
