@@ -1,16 +1,16 @@
 <% if (ratings) { %>
-  <table>
+  <table class="c-ratings c-table-simple">
     <thead>
-      <tr>
-        <th>Rating</th>
-        <th>Percentage</th>
+      <tr class="c-table-simple__row">
+        <th class="c-table-simple__cell">Rating</th>
+        <th class="c-table-simple__cell">Percentage</th>
       </tr>
     </thead>
     <tbody>
       <% Object.keys(ratings).forEach((rating) => { %>
         <tr>
-          <td><%= rating %></td>
-          <td><%= ratings[rating] %>%</td>
+          <td class="c-table-simple__cell"><%= rating %></td>
+          <td class="c-table-simple__cell"><%= ratings[rating] %>%</td>
         </tr>
       <% }) %>
     </tbody>

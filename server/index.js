@@ -1,32 +1,26 @@
-const express = require('express')
+const koa = require('koa')
+const render = require('koa-ejs')
+const serve = require('koa-static')
+const mount = require('koa-mount')
+const logger = require('koa-logger')
 
-const { getAuthorities, getEstablishments, calculateRatingPercentages } = require('../services/fsa')
+const errorHandler = require('./middleware/error-handler')
+const routes = require('./routes')
 
-const app = express()
+const app = new koa()
 
-app.set('view engine', 'ejs')
-app.set('views', 'server/templates')
+render(app, {
+  root: 'server/templates',
+  viewExt: 'ejs',
+  cache: false
+});
 
-app.use('/assets', express.static('assets'))
+if (process.env.NODE_ENV !== 'test') {
+  app.use(logger())
+}
 
-app.get('/', async (req, res) => {
-	const authorityId = parseInt(req.query.authorityId) || 0
-
-  const authorities = await getAuthorities()
-  const authority = authorities.find(a => a.LocalAuthorityId === authorityId)
-
-  const pageData = {
-		authorities,
-		authorityId,
-		ratings: false
-	}
-
-  if (authority) {
-    const establishments = await getEstablishments(authorityId)
-    pageData.ratings = calculateRatingPercentages(establishments)
-  }
-
-  res.render('layout', pageData)
-})
+app.use(errorHandler)
+app.use(mount('/assets', serve('assets')))
+app.use(routes)
 
 module.exports = app

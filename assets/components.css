@@ -1,0 +1,16 @@
+/* Tables */
+
+.c-table-simple {
+  border-collapse: collapse;
+}
+
+.c-table-simple__row {
+  border-bottom: 1px solid;
+}
+
+.c-table-simple__cell {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+

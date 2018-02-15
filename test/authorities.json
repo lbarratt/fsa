@@ -1,0 +1,12 @@
+{
+  "authorities": [
+    {
+      "LocalAuthorityId": 1,
+      "Name": "The Good Place"
+    },
+    {
+      "LocalAuthorityId": 2,
+      "Name": "The Bad Place"
+    }
+  ]
+}

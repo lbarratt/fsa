@@ -1,0 +1,16 @@
+{
+  "establishments": [
+    {
+      "RatingValue": 5
+    },
+    {
+      "RatingValue": 5
+    },
+    {
+      "RatingValue": 1
+    },
+    {
+      "RatingValue": "Exempt"
+    }
+  ]
+}

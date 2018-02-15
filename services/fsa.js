@@ -1,5 +1,8 @@
 const axios = require('axios')
 
+const { FSA_URL } = require('../constants')
+const cache = require('./cache')
+
 const FSA = axios.create({
   baseURL: 'http://api.ratings.food.gov.uk',
   headers: {
@@ -20,30 +23,7 @@ const getEstablishments = async (authorityId) => {
   return data.establishments
 }
 
-const calculateRatingPercentages = (establishments) => {
-	const ratings = establishments.reduce((acc, establishment) => {
-		if (!acc[establishment.RatingValue]) {
-			acc[establishment.RatingValue] = 0
-		}
-
-		acc[establishment.RatingValue] += 1
-
-		return acc
-	}, {})
-
-	const totalRatings = Object.keys(ratings).reduce((acc, rating) => {
-		return acc + ratings[rating]
-	}, 0)
-
-	return Object.keys(ratings).reduce((acc, rating) => {
-		acc[rating] = ((ratings[rating] / totalRatings) * 100).toFixed(2)
-
-		return acc
-	}, {})
-}
-
 module.exports = {
 	getAuthorities,
-	getEstablishments,
-	calculateRatingPercentages
+	getEstablishments
 }
