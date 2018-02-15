@@ -1,0 +1,18 @@
+<% if (ratings) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Rating</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Object.keys(ratings).forEach((rating) => { %>
+        <tr>
+          <td><%= rating %></td>
+          <td><%= ratings[rating] %>%</td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>

@@ -1,0 +1,14 @@
+<form method="get">
+  <select name="authorityId">
+    <% authorities.forEach((authority) => { %>
+      <% const isSelected = authority.LocalAuthorityId === authorityId %>
+      <% const selected = isSelected ? "selected" : "" %>
+
+      <option value="<%= authority.LocalAuthorityId %>" <%= selected %>>
+        <%= authority.Name %>
+      </option>
+    <% }) %>
+  </select>
+
+  <button>Show</button>
+</form>
