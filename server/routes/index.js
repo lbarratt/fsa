@@ -1,5 +1,5 @@
-const koaRouter = require('koa-router')
-const router = new koaRouter()
+const KoaRouter = require('koa-router')
+const router = new KoaRouter()
 
 const cache = require('../../services/cache')
 const { getAuthorities, getEstablishments } = require('../../services/fsa')

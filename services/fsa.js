@@ -1,15 +1,14 @@
 const axios = require('axios')
 
 const { FSA_URL } = require('../constants')
-const cache = require('./cache')
 
 const FSA = axios.create({
-  baseURL: 'http://api.ratings.food.gov.uk',
+  baseURL: FSA_URL,
   headers: {
     'content-type': 'application/json',
     'x-api-version': 2
   }
-});
+})
 
 const getAuthorities = async () => {
   const { data } = await FSA.get('/Authorities')
@@ -24,6 +23,6 @@ const getEstablishments = async (authorityId) => {
 }
 
 module.exports = {
-	getAuthorities,
-	getEstablishments
+  getAuthorities,
+  getEstablishments
 }

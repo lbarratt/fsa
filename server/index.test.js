@@ -11,7 +11,7 @@ beforeEach(async () => {
 
   nock(FSA_URL)
     .get('/Authorities')
-    .reply(500, authorities);
+    .reply(500, authorities)
 })
 
 test('GET / responsds with 500 when an error occurs', async () => {
@@ -19,4 +19,3 @@ test('GET / responsds with 500 when an error occurs', async () => {
 
   expect(res.status).toBe(500)
 })
-

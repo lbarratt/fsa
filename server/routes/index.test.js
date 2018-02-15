@@ -10,12 +10,12 @@ const establishments = require('../../test/establishments.json')
 beforeEach(() => {
   nock(FSA_URL)
     .get('/Authorities')
-    .reply(200, authorities);
+    .reply(200, authorities)
 
   nock(FSA_URL)
     .get('/Establishments')
     .query({ localAuthorityId: 1, pageSize: 0 })
-    .reply(200, establishments);
+    .reply(200, establishments)
 })
 
 test('GET / responds 200 OK as HTML', async () => {

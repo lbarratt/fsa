@@ -1,7 +1,7 @@
-const cacheman = require('cacheman');
+const Cacheman = require('cacheman')
 
-const cache = new cacheman({
+const cache = new Cacheman({
   ttl: 36000
-});
+})
 
 module.exports = cache
